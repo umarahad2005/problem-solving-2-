@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int binarySearch(int arr[], int size, int target) {
@@ -27,11 +28,15 @@ int main() {
     cin >> size;
 
     int* array = new int[size];
-    cout << "Enter " << size << " elements for the  array in ascending order:" << endl;
+    cout << "Enter " << size << " elements for the array:" << endl;
     for (int i = 0; i < size; i++) {
         cout << "Element " << (i + 1) << ": ";
         cin >> array[i];
     }
+
+    // Sort the array to ensure binary search works correctly
+    sort(array, array + size);
+    cout << "\nArray sorted for binary search." << endl;
 
     int target;
     cout << "Enter the element to search for: ";
